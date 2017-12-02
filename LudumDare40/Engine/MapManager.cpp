@@ -19,7 +19,7 @@ Tile &MapManager::GetTile(sf::Vector2<uint32_t> aTileCoord)
 
 sf::Vector2f MapManager::GetTileDrawOrigin(const sf::Vector2<uint32_t> &aTileCoord)
 {
-	return sf::Vector2f((aTileCoord.x - aTileCoord.y) * kTileWidth,
+	return sf::Vector2f(((int32_t) aTileCoord.x - (int32_t) aTileCoord.y) * kTileWidth,
 	                            (aTileCoord.x + aTileCoord.y) * kTileHeight);
 }
 

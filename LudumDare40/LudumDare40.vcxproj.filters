@@ -61,7 +61,10 @@
       <Filter>Source Files\Engine\Core Objects</Filter>
     </ClCompile>
     <ClCompile Include="Entities\PlayerChair.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Entities\GrainPile.cpp">
+      <Filter>Source Files\Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,7 +93,10 @@
       <Filter>Header Files\Engine\Core Objects</Filter>
     </ClInclude>
     <ClInclude Include="Entities\PlayerChair.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Entities\GrainPile.h">
+      <Filter>Header Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

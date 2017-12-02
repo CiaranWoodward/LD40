@@ -4,6 +4,7 @@
 #include "DrawObject.h"
 
 #include "../Entities/PlayerChair.h"
+#include "../Entities/GrainPile.h"
 
 GameManager::GameManager() :
 	mDrawManager(),
@@ -22,6 +23,7 @@ int GameManager::run()
 	bool run = true;
 
 	new PlayerChair(*this);
+	new GrainPile(*this);
 	
 	while (run)
 	{

@@ -1,10 +1,13 @@
 #include "WindowManager.h"
+#include "MapManager.h"
 
 WindowManager::WindowManager(DrawManager &aDrawManager) :
 	mWindow(sf::VideoMode(1280, 720), "Ludum Dare 40"),
 	mDrawManager(aDrawManager)
 {
-
+	sf::Vector2f center = MapManager::GetTileDrawCenter(sf::Vector2<uint32_t>(MapManager::kMaxX/2, MapManager::kMaxY/2));
+	sf::Vector2f dimens(1280.f, 720.f);
+	mWindow.setView(sf::View(center, dimens));
 }
 
 
