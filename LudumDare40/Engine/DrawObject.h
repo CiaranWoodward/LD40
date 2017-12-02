@@ -3,29 +3,18 @@
 #include <cstdint>
 #include <SFML\Graphics.hpp>
 
-#include "DrawManager.h"
+class DrawManager;
 
 class DrawObject
 {
 public:
-	DrawObject(DrawManager &aDrawManager, sf::Sprite &aSprite, int32_t aDrawLevel) :
-		mDrawManager(aDrawManager),
-		mSprite(aSprite),
-		mDrawLevel(aDrawLevel)
-	{
-		mDrawManager.Add(*this);
-		mDrawManager.Refresh();
-	}
-
-	~DrawObject()
-	{
-		mDrawManager.Remove(*this);
-	}
+	DrawObject(DrawManager &aDrawManager, sf::Sprite &aSprite, int32_t aDrawLevel);
+	~DrawObject();
 
 	sf::Sprite &GetSprite() const { return mSprite; }
 
 	int32_t GetDrawLevel() const { return mDrawLevel; }
-	int32_t SetDrawLevel(int32_t aDrawLevel) { mDrawLevel = aDrawLevel; mDrawManager.Refresh(); }
+	void SetDrawLevel(int32_t aDrawLevel);
 
 private:
 	DrawManager &mDrawManager;

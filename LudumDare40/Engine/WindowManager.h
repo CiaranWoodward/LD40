@@ -1,10 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+#include "DrawManager.h"
+
 class WindowManager
 {
 public:
-	WindowManager();
+	WindowManager(DrawManager &aDrawManager);
 	~WindowManager();
 
 	//Returns false if close is requested
@@ -12,6 +14,7 @@ public:
 
 private:
 	sf::RenderWindow mWindow;
-	sf::CircleShape mTestShape;
+
+	DrawManager &mDrawManager;
 };
 

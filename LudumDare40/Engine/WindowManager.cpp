@@ -1,10 +1,10 @@
 #include "WindowManager.h"
 
-WindowManager::WindowManager() :
+WindowManager::WindowManager(DrawManager &aDrawManager) :
 	mWindow(sf::VideoMode(1280, 720), "Ludum Dare 40"),
-	mTestShape(100.0f)
+	mDrawManager(aDrawManager)
 {
-	mTestShape.setFillColor(sf::Color::Green);
+	
 }
 
 
@@ -24,7 +24,7 @@ bool WindowManager::Update()
 	}
 
 	mWindow.clear();
-	mWindow.draw(mTestShape);
+	mDrawManager.DrawAll(mWindow);
 	mWindow.display();
 
 	return true;

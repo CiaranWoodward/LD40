@@ -3,8 +3,10 @@
 
 
 DrawManager::DrawManager() :
-	mDrawObjects()
+	mDrawObjects(),
+	mTexture()
 {
+	mTexture.loadFromFile("Res/SpriteMap.png");
 }
 
 DrawManager::~DrawManager()
@@ -13,7 +15,15 @@ DrawManager::~DrawManager()
 
 void DrawManager::Refresh()
 {
-	std::sort(mDrawObjects.begin, mDrawObjects.end, CompareDrawObjects);
+	std::sort(mDrawObjects.begin(), mDrawObjects.end(), &CompareDrawObjects);
+}
+
+void DrawManager::DrawAll(sf::RenderWindow &aWindow)
+{
+	for (DrawObject *obj : mDrawObjects)
+	{
+		aWindow.draw(obj->GetSprite());
+	}
 }
 
 void DrawManager::Add(DrawObject &aDrawObject)

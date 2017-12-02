@@ -1,9 +1,11 @@
 #pragma once
-#include "DrawObject.h"
-
 #include <vector>
 #include <iterator>
 #include <algorithm>
+
+#include <SFML\Graphics.hpp>
+
+#include "DrawObject.h"
 
 class DrawManager
 {
@@ -14,14 +16,18 @@ public:
 	~DrawManager();
 
 	void Refresh();
+	void DrawAll(sf::RenderWindow &aWindow);
+
+	sf::Texture &GetGlobalTexture() { return mTexture; }
 
 protected:
 	void Add(DrawObject &DrawObject);
 	void Remove(DrawObject &DrawObject);
 
 private:
-	bool CompareDrawObjects(DrawObject *l, DrawObject *r);
+	static bool CompareDrawObjects(DrawObject *l, DrawObject *r);
 
 	std::vector<DrawObject*> mDrawObjects;
+	sf::Texture mTexture;
 };
 

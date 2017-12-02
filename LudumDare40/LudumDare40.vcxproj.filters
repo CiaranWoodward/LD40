@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Engine">
       <UniqueIdentifier>{bbef5747-5e2e-4a01-b728-5d0a49336b42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Abstracts">
+      <UniqueIdentifier>{420e9b69-eb81-4be7-b630-257cff8ac511}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -30,6 +33,18 @@
     <ClCompile Include="Engine\GameManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\MapManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\DrawManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\DrawObject.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\TileObject.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\WindowManager.h">
@@ -37,6 +52,18 @@
     </ClInclude>
     <ClInclude Include="Engine\GameManager.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\MapManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\DrawManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\TileObject.h">
+      <Filter>Header Files\Abstracts</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\DrawObject.h">
+      <Filter>Header Files\Abstracts</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

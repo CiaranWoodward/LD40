@@ -11,6 +11,7 @@ public:
 	int run();
 
 private:
+	DrawManager mDrawManager;
 	WindowManager mWindowManager;
 };
 
