@@ -5,7 +5,8 @@
 
 GameManager::GameManager() :
 	mDrawManager(),
-	mWindowManager(mDrawManager)
+	mWindowManager(mDrawManager),
+	mLogicManager()
 {
 }
 
@@ -27,6 +28,7 @@ int GameManager::run()
 	while (run)
 	{
 		run = run && mWindowManager.Update();
+		run = run && mLogicManager.Update();
 	}
 	return 0;
 }

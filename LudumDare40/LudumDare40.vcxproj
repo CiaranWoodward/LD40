@@ -122,6 +122,8 @@
   <ItemGroup>
     <ClCompile Include="Engine\DrawManager.cpp" />
     <ClCompile Include="Engine\GameManager.cpp" />
+    <ClCompile Include="Engine\LogicManager.cpp" />
+    <ClCompile Include="Engine\LogicObject.cpp" />
     <ClCompile Include="Engine\MapManager.cpp" />
     <ClCompile Include="Engine\DrawObject.cpp" />
     <ClCompile Include="Engine\TileObject.cpp" />
@@ -132,6 +134,8 @@
     <ClInclude Include="Engine\DrawManager.h" />
     <ClInclude Include="Engine\DrawObject.h" />
     <ClInclude Include="Engine\GameManager.h" />
+    <ClInclude Include="Engine\LogicManager.h" />
+    <ClInclude Include="Engine\LogicObject.h" />
     <ClInclude Include="Engine\MapManager.h" />
     <ClInclude Include="Engine\TileObject.h" />
     <ClInclude Include="Engine\WindowManager.h" />

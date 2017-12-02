@@ -1,6 +1,8 @@
 #pragma once
 
+#include "DrawManager.h"
 #include "WindowManager.h"
+#include "LogicManager.h"
 
 class GameManager
 {
@@ -13,5 +15,6 @@ public:
 private:
 	DrawManager mDrawManager;
 	WindowManager mWindowManager;
+	LogicManager mLogicManager;
 };
 

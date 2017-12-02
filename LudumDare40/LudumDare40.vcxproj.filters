@@ -19,8 +19,11 @@
     <Filter Include="Source Files\Engine">
       <UniqueIdentifier>{bbef5747-5e2e-4a01-b728-5d0a49336b42}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Abstracts">
+    <Filter Include="Header Files\Engine\Core Objects">
       <UniqueIdentifier>{420e9b69-eb81-4be7-b630-257cff8ac511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Core Objects">
+      <UniqueIdentifier>{11b57589-1bd1-4e4e-a3bd-4025e709c0d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,11 +42,17 @@
     <ClCompile Include="Engine\DrawManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\DrawObject.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\TileObject.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files\Engine\Core Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\DrawObject.cpp">
+      <Filter>Source Files\Engine\Core Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\LogicObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\LogicManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,10 +69,16 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\TileObject.h">
-      <Filter>Header Files\Abstracts</Filter>
+      <Filter>Header Files\Engine\Core Objects</Filter>
     </ClInclude>
     <ClInclude Include="Engine\DrawObject.h">
-      <Filter>Header Files\Abstracts</Filter>
+      <Filter>Header Files\Engine\Core Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\LogicObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\LogicManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
