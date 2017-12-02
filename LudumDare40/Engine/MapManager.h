@@ -30,7 +30,10 @@ public:
 	static const size_t kMaxX = 50;
 	static const size_t kMaxY = 50;
 
-	Tile GetTile(sf::Vector2<uint32_t> aTileCoord);
+	static const int32_t kTileWidth = 26;
+	static const int32_t kTileHeight = 13;
+
+	Tile &GetTile(sf::Vector2<uint32_t> aTileCoord);
 	sf::Vector2<int32_t> GetTileDrawOrigin(sf::Vector2<uint32_t> aTileCoord);
 	sf::Vector2<int32_t> GetTileDrawCenter(sf::Vector2<uint32_t> aTileCoord);
 

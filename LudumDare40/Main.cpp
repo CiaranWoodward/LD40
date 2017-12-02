@@ -8,5 +8,7 @@ int main()
 
 	game->run();
 
+	delete game;
+
 	return 0;
 }

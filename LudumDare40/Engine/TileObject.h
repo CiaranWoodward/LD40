@@ -8,7 +8,7 @@ public:
 	TileObject(int32_t aBlockFactor, int32_t aKeenFactor) : mBlockFactor(aBlockFactor), mKeenFactor(aKeenFactor) {}
 	~TileObject() {}
 
-	virtual bool Damage(int32_t damage);
+	virtual bool Damage(int32_t damage) = 0;
 
 	int32_t GetBlockFactor() const { return mBlockFactor; }
 	int32_t GetKeenFactor() const { return mKeenFactor; }
