@@ -4,7 +4,7 @@ WindowManager::WindowManager(DrawManager &aDrawManager) :
 	mWindow(sf::VideoMode(1280, 720), "Ludum Dare 40"),
 	mDrawManager(aDrawManager)
 {
-	
+
 }
 
 

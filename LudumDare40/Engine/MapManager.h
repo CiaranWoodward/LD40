@@ -34,8 +34,8 @@ public:
 	static const int32_t kTileHeight = 13;
 
 	Tile &GetTile(sf::Vector2<uint32_t> aTileCoord);
-	sf::Vector2<int32_t> GetTileDrawOrigin(sf::Vector2<uint32_t> aTileCoord);
-	sf::Vector2<int32_t> GetTileDrawCenter(sf::Vector2<uint32_t> aTileCoord);
+	static sf::Vector2f GetTileDrawOrigin(const sf::Vector2<uint32_t> &aTileCoord);
+	static sf::Vector2f GetTileDrawCenter(const sf::Vector2<uint32_t> &aTileCoord);
 
 private:
 	Tile mTiles[kMaxX][kMaxY];

@@ -13,14 +13,16 @@ public:
 
 	~TileObject();
 
-	virtual bool Damage(int32_t damage) = 0;
+	bool Damage(int32_t damage);
 
 	int32_t GetBlockFactor() const { return mBlockFactor; }
 	int32_t GetKeenFactor() const { return mKeenFactor; }
 
+	const sf::Vector2<uint32_t> GetTileCoords() const { return mTileCoord; }
+
 private:
 	MapManager &mMapManager;
-	sf::Vector2<uint32_t> mTileCoord;
+	const sf::Vector2<uint32_t> mTileCoord;
 
 	int32_t mBlockFactor;
 	int32_t mKeenFactor;

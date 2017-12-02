@@ -14,3 +14,19 @@ TileObject::~TileObject()
 {
 	mMapManager.GetTile(mTileCoord).SetTileObject(NULL);
 }
+
+bool TileObject::Damage(int32_t damage)
+{
+	mBlockFactor -= damage;
+	if (mBlockFactor < 0)
+	{
+		mKeenFactor -= mBlockFactor;
+		mBlockFactor = 0;
+	}
+	if (mKeenFactor < 0)
+	{
+		mKeenFactor = 0;
+	}
+
+	return (mKeenFactor == 0);
+}

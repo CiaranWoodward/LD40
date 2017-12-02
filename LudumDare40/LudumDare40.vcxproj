@@ -128,6 +128,7 @@
     <ClCompile Include="Engine\DrawObject.cpp" />
     <ClCompile Include="Engine\TileObject.cpp" />
     <ClCompile Include="Engine\WindowManager.cpp" />
+    <ClCompile Include="Entities\PlayerChair.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +140,7 @@
     <ClInclude Include="Engine\MapManager.h" />
     <ClInclude Include="Engine\TileObject.h" />
     <ClInclude Include="Engine\WindowManager.h" />
+    <ClInclude Include="Entities\PlayerChair.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Engine\Core Objects">
       <UniqueIdentifier>{11b57589-1bd1-4e4e-a3bd-4025e709c0d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entities">
+      <UniqueIdentifier>{b9f93d60-3def-4e9b-8c97-900888f13163}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities">
+      <UniqueIdentifier>{5b845d9d-42b0-43f1-9a43-4973b6e115b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -48,10 +54,13 @@
     <ClCompile Include="Engine\DrawObject.cpp">
       <Filter>Source Files\Engine\Core Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\LogicObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\LogicManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\LogicObject.cpp">
+      <Filter>Source Files\Engine\Core Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Entities\PlayerChair.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,10 +83,13 @@
     <ClInclude Include="Engine\DrawObject.h">
       <Filter>Header Files\Engine\Core Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\LogicObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\LogicManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\LogicObject.h">
+      <Filter>Header Files\Engine\Core Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Entities\PlayerChair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
