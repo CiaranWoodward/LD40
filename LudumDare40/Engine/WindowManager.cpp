@@ -5,7 +5,6 @@ WindowManager::WindowManager() :
 	mTestShape(100.0f)
 {
 	mTestShape.setFillColor(sf::Color::Green);
-
 }
 
 
