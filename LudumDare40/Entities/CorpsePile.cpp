@@ -18,6 +18,10 @@ CorpsePile::CorpsePile(GameManager &aGameManager, uint32_t &aCorpseCounter) :
 	mSprite.setOrigin(mSprite.getTextureRect().width / 2.f, mSprite.getTextureRect().height);
 	mDrawObject.SetDrawLevel(static_cast<int32_t>(MapManager::GetTileDrawOrigin(mTileObject.GetTileCoords()).y) - 1); //-1 because takes up extra tiles
 
+	mGameManager.GetMapManager().GetTile(mTileObject.GetTileCoords() - sf::Vector2u(1, 0)).SetTileObject(&mTileObject);
+	mGameManager.GetMapManager().GetTile(mTileObject.GetTileCoords() - sf::Vector2u(1, 1)).SetTileObject(&mTileObject);
+	mGameManager.GetMapManager().GetTile(mTileObject.GetTileCoords() - sf::Vector2u(0, 1)).SetTileObject(&mTileObject);
+
 	mTextCounter.setPosition(mSprite.getPosition() - sf::Vector2f(0.f, 100.f));
 	mTextCounter.setFillColor(sf::Color::White);
 }
@@ -25,6 +29,9 @@ CorpsePile::CorpsePile(GameManager &aGameManager, uint32_t &aCorpseCounter) :
 
 CorpsePile::~CorpsePile()
 {
+	mGameManager.GetMapManager().GetTile(mTileObject.GetTileCoords() - sf::Vector2u(1, 0)).SetTileObject(NULL);
+	mGameManager.GetMapManager().GetTile(mTileObject.GetTileCoords() - sf::Vector2u(1, 1)).SetTileObject(NULL);
+	mGameManager.GetMapManager().GetTile(mTileObject.GetTileCoords() - sf::Vector2u(0, 1)).SetTileObject(NULL);
 }
 
 bool CorpsePile::Update(sf::Time dt)
