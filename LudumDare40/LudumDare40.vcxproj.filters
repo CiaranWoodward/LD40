@@ -90,6 +90,15 @@
     <ClCompile Include="Entities\Bait.cpp">
       <Filter>Source Files\Entities\Buildings</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\EnemyObject.cpp">
+      <Filter>Source Files\Engine\Core Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\EnemyManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Entities\Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\WindowManager.h">
@@ -139,6 +148,15 @@
     </ClInclude>
     <ClInclude Include="Entities\Bait.h">
       <Filter>Header Files\Entities\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\EnemyObject.h">
+      <Filter>Header Files\Engine\Core Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\EnemyManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Entities\Enemy.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

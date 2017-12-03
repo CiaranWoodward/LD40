@@ -1,7 +1,7 @@
 #pragma once
-#include "GameManager.h"
-
 #include <SFML\System.hpp>
+
+class GameManager;
 
 class EnemyObject
 {

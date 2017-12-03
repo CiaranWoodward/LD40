@@ -121,6 +121,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Engine\DrawManager.cpp" />
+    <ClCompile Include="Engine\EnemyManager.cpp" />
+    <ClCompile Include="Engine\EnemyObject.cpp" />
     <ClCompile Include="Engine\GameManager.cpp" />
     <ClCompile Include="Engine\LogicManager.cpp" />
     <ClCompile Include="Engine\LogicObject.cpp" />
@@ -131,6 +133,7 @@
     <ClCompile Include="Entities\Bait.cpp" />
     <ClCompile Include="Entities\CorpsePile.cpp" />
     <ClCompile Include="Entities\Cursor.cpp" />
+    <ClCompile Include="Entities\Enemy.cpp" />
     <ClCompile Include="Entities\Farm.cpp" />
     <ClCompile Include="Entities\GrainPile.cpp" />
     <ClCompile Include="Entities\PlainTiles.cpp" />
@@ -141,6 +144,8 @@
   <ItemGroup>
     <ClInclude Include="Engine\DrawManager.h" />
     <ClInclude Include="Engine\DrawObject.h" />
+    <ClInclude Include="Engine\EnemyManager.h" />
+    <ClInclude Include="Engine\EnemyObject.h" />
     <ClInclude Include="Engine\GameManager.h" />
     <ClInclude Include="Engine\LogicManager.h" />
     <ClInclude Include="Engine\LogicObject.h" />
@@ -150,6 +155,7 @@
     <ClInclude Include="Entities\Bait.h" />
     <ClInclude Include="Entities\CorpsePile.h" />
     <ClInclude Include="Entities\Cursor.h" />
+    <ClInclude Include="Entities\Enemy.h" />
     <ClInclude Include="Entities\Farm.h" />
     <ClInclude Include="Entities\GrainPile.h" />
     <ClInclude Include="Entities\PlainTiles.h" />

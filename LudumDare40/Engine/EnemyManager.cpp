@@ -18,7 +18,7 @@ bool EnemyManager::Update()
 			eo = NULL;
 		}
 	}
-	mEnemyObjects.erase(std::remove(mEnemyObjects.begin(), mEnemyObjects.end(), NULL), mEnemyObjects.end());
+	mEnemyObjects.erase(std::remove(mEnemyObjects.begin(), mEnemyObjects.end(), reinterpret_cast<EnemyObject*>(NULL)), mEnemyObjects.end());
 	return true;
 }
 

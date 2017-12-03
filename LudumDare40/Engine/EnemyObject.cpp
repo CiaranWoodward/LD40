@@ -1,5 +1,6 @@
 #include <math.h>
 
+#include "GameManager.h"
 #include "EnemyObject.h"
 
 
@@ -9,6 +10,7 @@ EnemyObject::EnemyObject(GameManager &aGameManager, sf::Vector2f &aWorldCoords, 
 	mWorldCoords(aWorldCoords),
 	mHealth(aHealthMax)
 {
+	aGameManager.GetEnemyManager().Add(*this);
 }
 
 
