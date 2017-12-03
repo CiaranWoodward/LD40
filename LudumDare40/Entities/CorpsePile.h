@@ -16,8 +16,12 @@ private:
 	GameManager &mGameManager;
 
 	sf::Sprite mSprite;
+	sf::Text mTextCounter;
 
 	TileObject mTileObject;
 	DrawObject mDrawObject;
+	DrawObject mDrawTextObject;
+
+	uint32_t &mCorpseCounter;
 };
 

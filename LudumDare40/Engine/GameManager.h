@@ -22,5 +22,8 @@ private:
 	WindowManager mWindowManager;
 	LogicManager mLogicManager;
 	MapManager mMapManager;
+
+	uint32_t mCorpseCounter;
+	uint32_t mGrainCounter;
 };
 
