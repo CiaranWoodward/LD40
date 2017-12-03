@@ -4,6 +4,7 @@
 #include "WindowManager.h"
 #include "LogicManager.h"
 #include "MapManager.h"
+#include "EnemyManager.h"
 
 class Cursor;
 
@@ -18,6 +19,7 @@ public:
 	MapManager &GetMapManager() { return mMapManager; }
 	LogicManager &GetLogicManager() { return mLogicManager; }
 	DrawManager &GetDrawManager() { return mDrawManager; }
+	EnemyManager &GetEnemyManager() { return mEnemyManager; }
 	WindowManager &GetWindowManager() { return mWindowManager; }
 	Cursor &GetCursor() { return *mCursor; }
 
@@ -26,6 +28,7 @@ private:
 	WindowManager mWindowManager;
 	LogicManager mLogicManager;
 	MapManager mMapManager;
+	EnemyManager mEnemyManager;
 
 	Cursor *mCursor;
 

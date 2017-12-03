@@ -18,6 +18,7 @@ GameManager::GameManager() :
 	mDrawManager(),
 	mWindowManager(*this),
 	mLogicManager(),
+	mEnemyManager(),
 	mCorpseCounter(0),
 	mGrainCounter(20)
 {
