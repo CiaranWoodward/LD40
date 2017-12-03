@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 #include "PlainTiles.h"
 
 
@@ -11,9 +13,10 @@ PlainTiles::PlainTiles(GameManager & aGameManager) :
 		for (uint32_t y = 0; y < MapManager::kMaxY; y++)
 		{
 			sf::Sprite &sprite = mSprites[x][y];
+			int randOffset = std::rand() % 10;
 			
 			sprite.setTexture(mGameManager.GetDrawManager().GetGlobalTexture());
-			sprite.setTextureRect(sf::IntRect(0, 0, 54, 27));
+			sprite.setTextureRect(sf::IntRect(54 * randOffset, 0, 54, 27));
 			sprite.setPosition(MapManager::GetTileDrawOrigin(sf::Vector2<uint32_t>(x, y)));
 			sprite.setOrigin(sprite.getTextureRect().width / 2.f, sprite.getTextureRect().height);
 

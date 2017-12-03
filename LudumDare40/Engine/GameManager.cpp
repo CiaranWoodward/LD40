@@ -1,3 +1,6 @@
+#include <cstdlib>
+#include <ctime>
+
 #include <SFML/Graphics.hpp>
 
 #include "GameManager.h"
@@ -8,6 +11,7 @@
 #include "../Entities/GrainPile.h"
 #include "../Entities/CorpsePile.h"
 #include "../Entities/Wall.h"
+#include "../Entities/Farm.h"
 
 GameManager::GameManager() :
 	mDrawManager(),
@@ -16,6 +20,7 @@ GameManager::GameManager() :
 	mCorpseCounter(0),
 	mGrainCounter(20)
 {
+	std::srand(std::time(0));
 }
 
 
@@ -33,6 +38,10 @@ int GameManager::run()
 	new PlayerChair(*this);
 	new Wall(*this, sf::Vector2<uint32_t>(28, 28));
 	new Wall(*this, sf::Vector2<uint32_t>(28, 29));
+	new Farm(*this, sf::Vector2<uint32_t>(30, 30), mGrainCounter);
+	new Farm(*this, sf::Vector2<uint32_t>(31, 30), mGrainCounter);
+	new Farm(*this, sf::Vector2<uint32_t>(31, 31), mGrainCounter);
+	new Farm(*this, sf::Vector2<uint32_t>(30, 31), mGrainCounter);
 	new PlainTiles(*this);
 	
 	while (run)

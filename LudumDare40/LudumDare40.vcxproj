@@ -129,6 +129,7 @@
     <ClCompile Include="Engine\TileObject.cpp" />
     <ClCompile Include="Engine\WindowManager.cpp" />
     <ClCompile Include="Entities\CorpsePile.cpp" />
+    <ClCompile Include="Entities\Farm.cpp" />
     <ClCompile Include="Entities\GrainPile.cpp" />
     <ClCompile Include="Entities\PlainTiles.cpp" />
     <ClCompile Include="Entities\PlayerChair.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="Engine\TileObject.h" />
     <ClInclude Include="Engine\WindowManager.h" />
     <ClInclude Include="Entities\CorpsePile.h" />
+    <ClInclude Include="Entities\Farm.h" />
     <ClInclude Include="Entities\GrainPile.h" />
     <ClInclude Include="Entities\PlainTiles.h" />
     <ClInclude Include="Entities\PlayerChair.h" />

@@ -51,7 +51,5 @@ bool GrainPile::Update(sf::Time dt)
 
 	mSprite.setOrigin(mSprite.getTextureRect().width / 2.f, mSprite.getTextureRect().height);
 
-	mGrainCounter++;
-
 	return true;
 }
