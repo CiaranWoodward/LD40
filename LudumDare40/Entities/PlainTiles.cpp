@@ -38,5 +38,14 @@ PlainTiles::~PlainTiles()
 
 bool PlainTiles::Update(sf::Time dt)
 {
+	for (int x = 0; x < MapManager::kMaxX; x++)
+	{
+		for (int y = 0; y < MapManager::kMaxY; y++)
+		{
+			uint8_t oPac = mGameManager.GetMapManager().GetTile(sf::Vector2<uint32_t>(x, y)).mSmellFactor >> 24;
+			mSprites[x][y].setColor(sf::Color(255, 255, 255, oPac));
+		}
+	}
+	
 	return true;
 }

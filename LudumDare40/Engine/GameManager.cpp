@@ -51,6 +51,7 @@ int GameManager::run()
 	while (run)
 	{
 		run = run && mWindowManager.Update();
+		run = run && mMapManager.Update();
 		run = run && mLogicManager.Update();
 		run = run && mCursor->Update();
 	}

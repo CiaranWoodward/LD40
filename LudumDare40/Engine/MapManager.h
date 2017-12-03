@@ -17,6 +17,16 @@ public:
 	TileObject *GetTileObject() { return mTileObject; }
 	void SetTileObject(TileObject *aTileObject) { mTileObject = aTileObject; }
 
+	void IncrementSmellFactor(uint32_t aSmellFactor)
+	{
+		mLastTouched += aSmellFactor;
+		if ((mSmellFactor + aSmellFactor) < mSmellFactor) mSmellFactor = UINT32_MAX;
+		else mSmellFactor += aSmellFactor;
+	}
+
+	uint32_t mSmellFactor;
+	uint32_t mLastTouched;
+
 private:
 	TileObject *mTileObject;
 };
@@ -26,6 +36,8 @@ class MapManager
 public:
 	MapManager();
 	~MapManager();
+
+	bool Update();
 
 	static const size_t kMaxX = 50;
 	static const size_t kMaxY = 50;
@@ -38,6 +50,7 @@ public:
 	static sf::Vector2f GetTileDrawCenter(const sf::Vector2<uint32_t> &aTileCoord);
 
 private:
+	void CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor);
 	Tile mTiles[kMaxX][kMaxY];
 };
 

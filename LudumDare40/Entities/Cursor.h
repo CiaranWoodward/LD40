@@ -36,6 +36,7 @@ private:
 		case kItemTurret:
 			return 2;
 		}
+		return 0;
 	}
 
 	int GetCorpseCost(enum kItemTypes type)
@@ -53,6 +54,7 @@ private:
 		case kItemTurret:
 			return 4;
 		}
+		return 0;
 	}
 
 	GameManager &mGameManager;

@@ -8,7 +8,7 @@ GrainPile::GrainPile(GameManager &aGameManager, uint32_t &aGrainCounter) :
 	mGameManager(aGameManager),
 	mSprite(),
 	mTextCounter("000", mGameManager.GetDrawManager().GetGlobalFont(), 10),
-	mTileObject(mGameManager.GetMapManager(), sf::Vector2<uint32_t>(24, 26), 1, 100),
+	mTileObject(mGameManager.GetMapManager(), sf::Vector2<uint32_t>(24, 26), 1, 31),
 	mDrawObject(mGameManager.GetDrawManager(), mSprite, 0),
 	mDrawTextObject(mGameManager.GetDrawManager(), mTextCounter, INT32_MAX),
 	mGrainCounter(aGrainCounter)
