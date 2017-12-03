@@ -3,13 +3,18 @@
 
 #include "Cursor.h"
 
+#include "Farm.h"
+#include "Bait.h"
+#include "Wall.h"
 
 
-Cursor::Cursor(GameManager &aGameManager) :
+Cursor::Cursor(GameManager &aGameManager, uint32_t &aGrainCounter, uint32_t &aCorpseCounter) :
 	mGameManager(aGameManager),
 	mSprite(),
 	mDrawObject(mGameManager.GetDrawManager(), mSprite, INT32_MAX - 10),
-	mCurItem(kItemClear)
+	mCurItem(kItemClear),
+	mGrainCounter(aGrainCounter),
+	mCorpseCounter(aCorpseCounter)
 {
 	mSprite.setTexture(mGameManager.GetDrawManager().GetGlobalTexture());
 	mSprite.setTextureRect(sf::IntRect(54, 94, 54, 41));
@@ -74,7 +79,50 @@ bool Cursor::HandleMouseEvent(sf::Event & aMouseEvent)
 		}
 		else
 		{
+			sf::Vector2f worldPos = mGameManager.GetWindowManager().GetWindow().mapPixelToCoords(gCoords);
 
+			int32_t div = MapManager::kTileWidth + (2 * MapManager::kTileHeight);
+			int32_t Sy = static_cast<int32_t>(worldPos.y);
+			int32_t Sx = static_cast<int32_t>(worldPos.x);
+
+			sf::Vector2<uint32_t> tileCoords(((2 * Sy) + Sx) / div, ((2 * Sy) - Sx) / div);
+			tileCoords += {1, 1};
+
+			if (mGameManager.GetMapManager().GetTile(tileCoords).GetTileObject() == NULL)
+			{
+				//Tile Free
+				if (mGrainCounter >= GetGrainCost(mCurItem) && mCorpseCounter >= GetCorpseCost(mCurItem))
+				{
+					mGrainCounter -= GetGrainCost(mCurItem);
+					mCorpseCounter -= GetCorpseCost(mCurItem);
+
+					switch (mCurItem)
+					{
+					case kItemClear:
+						break;
+					case kItemWall:
+						new Wall(mGameManager, tileCoords);
+						break;
+					case kItemFarm:
+						new Farm(mGameManager, tileCoords, mGrainCounter);
+						break;
+					case kItemBait:
+						new Bait(mGameManager, tileCoords);
+						break;
+					case kItemTurret:
+						//TODO
+						break;
+					}
+				}
+				else
+				{
+					//Can't afford
+				}
+			}
+			else
+			{
+				//Tile taken
+			}
 		}
 	}
 	else if (aMouseEvent.mouseButton.button == sf::Mouse::Right)

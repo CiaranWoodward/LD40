@@ -22,7 +22,7 @@ GameManager::GameManager() :
 	mGrainCounter(20)
 {
 	std::srand(std::time(0));
-	mCursor = new Cursor(*this);
+	mCursor = new Cursor(*this, mGrainCounter, mCorpseCounter);
 }
 
 
