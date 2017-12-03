@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Entities">
       <UniqueIdentifier>{5b845d9d-42b0-43f1-9a43-4973b6e115b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entities\Buildings">
+      <UniqueIdentifier>{51c2a81f-d730-42bc-be35-06568b9a1da7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Buildings">
+      <UniqueIdentifier>{81c978e5-89fa-4f1c-9c4b-9ac59ed3a97d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -69,17 +75,20 @@
     <ClCompile Include="Entities\CorpsePile.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="Entities\Wall.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="Entities\PlainTiles.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Entities\Farm.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Entities\Cursor.cpp">
       <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Entities\Farm.cpp">
+      <Filter>Source Files\Entities\Buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="Entities\Wall.cpp">
+      <Filter>Source Files\Entities\Buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="Entities\Bait.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,16 +125,19 @@
     <ClInclude Include="Entities\CorpsePile.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="Entities\Wall.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="Entities\PlainTiles.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="Entities\Farm.h">
+    <ClInclude Include="Entities\Cursor.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="Entities\Cursor.h">
+    <ClInclude Include="Entities\Farm.h">
+      <Filter>Header Files\Entities\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="Entities\Wall.h">
+      <Filter>Header Files\Entities\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="Entities\Bait.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
