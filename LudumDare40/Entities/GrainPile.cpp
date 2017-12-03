@@ -34,5 +34,24 @@ bool GrainPile::Update(sf::Time dt)
 	mTextCounter.setString(std::to_string(mGrainCounter));
 	mTextCounter.setOrigin(mTextCounter.getLocalBounds().width / 2, 0);
 
+	if (mGrainCounter < 5)
+		mSprite.setTextureRect(mTexture1);
+	else if (mGrainCounter < 30)
+		mSprite.setTextureRect(mTexture2);
+	else if (mGrainCounter < 60)
+		mSprite.setTextureRect(mTexture3);
+	else if (mGrainCounter < 120)
+		mSprite.setTextureRect(mTexture4);
+	else if (mGrainCounter < 500)
+		mSprite.setTextureRect(mTexture5);
+	else if (mGrainCounter < 1500)
+		mSprite.setTextureRect(mTexture6);
+	else
+		mSprite.setTextureRect(mTexture7);
+
+	mSprite.setOrigin(mSprite.getTextureRect().width / 2.f, mSprite.getTextureRect().height);
+
+	mGrainCounter++;
+
 	return true;
 }
