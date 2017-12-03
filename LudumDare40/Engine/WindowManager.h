@@ -17,6 +17,7 @@ public:
 private:
 	sf::RenderWindow mWindow;
 	sf::View mView;
+	sf::Sprite mHUD;
 
 	GameManager &mGameManager;
 };
