@@ -1,7 +1,7 @@
 #include "MapManager.h"
 #include "TileObject.h"
 
-TileObject::TileObject(MapManager &aMapManager, sf::Vector2<int32_t> aTileCoord, int32_t aBlockFactor, int32_t aKeenFactor) :
+TileObject::TileObject(MapManager &aMapManager, sf::Vector2<uint32_t> aTileCoord, int32_t aBlockFactor, int32_t aKeenFactor) :
 	mMapManager(aMapManager),
 	mTileCoord(aTileCoord),
 	mBlockFactor(aBlockFactor),

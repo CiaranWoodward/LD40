@@ -6,6 +6,7 @@
 #include "../Entities/PlayerChair.h"
 #include "../Entities/GrainPile.h"
 #include "../Entities/CorpsePile.h"
+#include "../Entities/Wall.h"
 
 GameManager::GameManager() :
 	mDrawManager(),
@@ -23,9 +24,12 @@ int GameManager::run()
 {
 	bool run = true;
 
-	new PlayerChair(*this);
+	
 	new GrainPile(*this);
 	new CorpsePile(*this);
+	new PlayerChair(*this);
+	new Wall(*this, sf::Vector2<uint32_t>(28, 28));
+	new Wall(*this, sf::Vector2<uint32_t>(28, 29));
 	
 	while (run)
 	{

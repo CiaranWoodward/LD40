@@ -1,27 +1,27 @@
-#include "PlayerChair.h"
+#include "Wall.h"
 
 
 
-PlayerChair::PlayerChair(GameManager &aGameManager) :
+Wall::Wall(GameManager &aGameManager, sf::Vector2<uint32_t> aTileCoord) :
 	LogicObject(aGameManager.GetLogicManager()),
 	mGameManager(aGameManager),
 	mSprite(),
-	mTileObject(mGameManager.GetMapManager(), sf::Vector2<uint32_t>(25, 25), 100, 1),
+	mTileObject(mGameManager.GetMapManager(), aTileCoord, 20, 1),
 	mDrawObject(mGameManager.GetDrawManager(), mSprite, 0)
 {
 	mSprite.setTexture(mGameManager.GetDrawManager().GetGlobalTexture());
-	mSprite.setTextureRect(sf::IntRect(216, 28, 54, 80));
+	mSprite.setTextureRect(sf::IntRect(54, 94, 54, 41));
 	mSprite.setPosition(MapManager::GetTileDrawOrigin(mTileObject.GetTileCoords()));
 	mSprite.setOrigin(mSprite.getTextureRect().width / 2.f, mSprite.getTextureRect().height);
 	mDrawObject.SetDrawLevel(static_cast<int32_t>(MapManager::GetTileDrawOrigin(mTileObject.GetTileCoords()).y));
 }
 
 
-PlayerChair::~PlayerChair()
+Wall::~Wall()
 {
 }
 
-bool PlayerChair::Update(sf::Time dt)
+bool Wall::Update(sf::Time dt)
 {
 	return true;
 }
