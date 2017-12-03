@@ -20,7 +20,7 @@ PlainTiles::PlainTiles(GameManager & aGameManager) :
 			sprite.setPosition(MapManager::GetTileDrawOrigin(sf::Vector2<uint32_t>(x, y)));
 			sprite.setOrigin(sprite.getTextureRect().width / 2.f, sprite.getTextureRect().height);
 
-			mDrawObjects[x][y] = new DrawObject(mGameManager.GetDrawManager(), sprite, sprite.getPosition().y - 2);
+			mDrawObjects[x][y] = new DrawObject(mGameManager.GetDrawManager(), sprite, sprite.getPosition().y - 10000);
 		}
 	}
 }

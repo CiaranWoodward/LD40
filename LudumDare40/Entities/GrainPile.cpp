@@ -30,6 +30,7 @@ GrainPile::~GrainPile()
 
 bool GrainPile::Update(sf::Time dt)
 {
+	int32_t drawLevelOffset = MapManager::kTileHeight + 20;
 
 	mTextCounter.setString(std::to_string(mGrainCounter));
 	mTextCounter.setOrigin(mTextCounter.getLocalBounds().width / 2, 0);
@@ -47,8 +48,12 @@ bool GrainPile::Update(sf::Time dt)
 	else if (mGrainCounter < 1500)
 		mSprite.setTextureRect(mTexture6);
 	else
+	{
 		mSprite.setTextureRect(mTexture7);
+		drawLevelOffset = 1;
+	}
 
+	mDrawObject.SetDrawLevel(static_cast<int32_t>(MapManager::GetTileDrawOrigin(mTileObject.GetTileCoords()).y) - drawLevelOffset); //-1 because takes up extra tiles
 	mSprite.setOrigin(mSprite.getTextureRect().width / 2.f, mSprite.getTextureRect().height);
 
 	return true;

@@ -1,6 +1,6 @@
+#include <cstdlib>
+
 #include "CorpsePile.h"
-
-
 
 CorpsePile::CorpsePile(GameManager &aGameManager, uint32_t &aCorpseCounter) :
 	LogicObject(aGameManager.GetLogicManager()),
@@ -29,8 +29,26 @@ CorpsePile::~CorpsePile()
 
 bool CorpsePile::Update(sf::Time dt)
 {
+	int32_t drawLevelOffset = MapManager::kTileHeight + 20;
+
 	mTextCounter.setString(std::to_string(mCorpseCounter));
 	mTextCounter.setOrigin(mTextCounter.getLocalBounds().width / 2, 0);
+
+	if (mCorpseCounter < 1)
+		mSprite.setTextureRect(mTexture1);
+	else if (mCorpseCounter < 2)
+		mSprite.setTextureRect(mTexture2);
+	else if (mCorpseCounter < 3)
+		mSprite.setTextureRect(mTexture3);
+	else if (mCorpseCounter < 6)
+		mSprite.setTextureRect(mTexture4);
+	else if (mCorpseCounter < 15)
+		mSprite.setTextureRect(mTexture5);
+	else
+		mSprite.setTextureRect(mTexture6);
+
+	mDrawObject.SetDrawLevel(static_cast<int32_t>(MapManager::GetTileDrawOrigin(mTileObject.GetTileCoords()).y) - drawLevelOffset); //-1 because takes up extra tiles
+	mSprite.setOrigin(mSprite.getTextureRect().width / 2.f, mSprite.getTextureRect().height);
 
 	return true;
 }
