@@ -5,6 +5,7 @@
 
 #include "../Entities/PlayerChair.h"
 #include "../Entities/GrainPile.h"
+#include "../Entities/CorpsePile.h"
 
 GameManager::GameManager() :
 	mDrawManager(),
@@ -24,6 +25,7 @@ int GameManager::run()
 
 	new PlayerChair(*this);
 	new GrainPile(*this);
+	new CorpsePile(*this);
 	
 	while (run)
 	{
