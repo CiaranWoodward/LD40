@@ -12,6 +12,7 @@
 #include "../Entities/CorpsePile.h"
 #include "../Entities/Wall.h"
 #include "../Entities/Farm.h"
+#include "../Entities/Cursor.h"
 
 GameManager::GameManager() :
 	mDrawManager(),
@@ -43,6 +44,8 @@ int GameManager::run()
 	new Farm(*this, sf::Vector2<uint32_t>(31, 31), mGrainCounter);
 	new Farm(*this, sf::Vector2<uint32_t>(30, 31), mGrainCounter);
 	new PlainTiles(*this);
+
+	new Cursor(*this);
 	
 	while (run)
 	{

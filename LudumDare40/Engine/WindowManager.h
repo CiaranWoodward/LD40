@@ -12,6 +12,8 @@ public:
 	//Returns false if close is requested
 	bool Update();
 
+	sf::RenderWindow &GetWindow() { return mWindow; }
+
 private:
 	sf::RenderWindow mWindow;
 

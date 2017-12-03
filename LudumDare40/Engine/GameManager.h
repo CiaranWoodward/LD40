@@ -16,6 +16,7 @@ public:
 	MapManager &GetMapManager() { return mMapManager; }
 	LogicManager &GetLogicManager() { return mLogicManager; }
 	DrawManager &GetDrawManager() { return mDrawManager; }
+	WindowManager &GetWindowManager() { return mWindowManager; }
 
 private:
 	DrawManager mDrawManager;
