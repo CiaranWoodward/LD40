@@ -88,7 +88,7 @@
       <Filter>Source Files\Entities\Buildings</Filter>
     </ClCompile>
     <ClCompile Include="Entities\Bait.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities\Buildings</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -138,7 +138,7 @@
       <Filter>Header Files\Entities\Buildings</Filter>
     </ClInclude>
     <ClInclude Include="Entities\Bait.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entities\Buildings</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -25,5 +25,7 @@ private:
 
 	sf::Sprite mSprite;
 	DrawObject mDrawObject;
+
+	enum kItemTypes mCurItem;
 };
 
