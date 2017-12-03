@@ -2,7 +2,7 @@
 
 
 
-CorpsePile::CorpsePile(GameManager &aGameManager) :
+CorpsePile::CorpsePile(GameManager &aGameManager, uint32_t &aCorpseCounter) :
 	LogicObject(aGameManager.GetLogicManager()),
 	mGameManager(aGameManager),
 	mSprite(),

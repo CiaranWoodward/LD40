@@ -8,10 +8,10 @@ class DrawManager;
 class DrawObject
 {
 public:
-	DrawObject(DrawManager &aDrawManager, sf::Sprite &aSprite, int32_t aDrawLevel);
+	DrawObject(DrawManager &aDrawManager, sf::Drawable &aDrawable, int32_t aDrawLevel);
 	~DrawObject();
 
-	sf::Sprite &GetSprite() const { return mSprite; }
+	sf::Drawable &GetSprite() const { return mDrawable; }
 
 	int32_t GetDrawLevel() const { return mDrawLevel; }
 	void SetDrawLevel(int32_t aDrawLevel);
@@ -19,7 +19,7 @@ public:
 private:
 	DrawManager &mDrawManager;
 
-	sf::Sprite &mSprite;
+	sf::Drawable &mDrawable;
 	int32_t mDrawLevel;
 };
 

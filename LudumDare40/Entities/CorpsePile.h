@@ -7,7 +7,7 @@ class CorpsePile :
 	public LogicObject
 {
 public:
-	CorpsePile(GameManager &aGameManager);
+	CorpsePile(GameManager &aGameManager, uint32_t &aCorpseCounter);
 	~CorpsePile();
 
 	bool Update(sf::Time dt) override;

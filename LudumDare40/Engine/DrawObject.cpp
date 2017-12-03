@@ -1,9 +1,9 @@
 #include "DrawObject.h"
 #include "DrawManager.h"
 
-DrawObject::DrawObject(DrawManager &aDrawManager, sf::Sprite &aSprite, int32_t aDrawLevel) :
+DrawObject::DrawObject(DrawManager &aDrawManager, sf::Drawable &aDrawable, int32_t aDrawLevel) :
 	mDrawManager(aDrawManager),
-	mSprite(aSprite),
+	mDrawable(aDrawable),
 	mDrawLevel(aDrawLevel)
 {
 	mDrawManager.Add(*this);

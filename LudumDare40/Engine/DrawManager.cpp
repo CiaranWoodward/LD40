@@ -4,9 +4,11 @@
 
 DrawManager::DrawManager() :
 	mDrawObjects(),
-	mTexture()
+	mTexture(),
+	mFont()
 {
 	mTexture.loadFromFile("Res/SpriteMap.png");
+	mFont.loadFromFile("Res/Fjalla_One/FjallaOne-Regular.ttf");
 }
 
 DrawManager::~DrawManager()

@@ -19,6 +19,7 @@ public:
 	void DrawAll(sf::RenderWindow &aWindow);
 
 	sf::Texture &GetGlobalTexture() { return mTexture; }
+	sf::Font &GetGlobalFont() { return mFont; }
 
 protected:
 	void Add(DrawObject &DrawObject);
@@ -29,5 +30,6 @@ private:
 
 	std::vector<DrawObject*> mDrawObjects;
 	sf::Texture mTexture;
+	sf::Font mFont;
 };
 
