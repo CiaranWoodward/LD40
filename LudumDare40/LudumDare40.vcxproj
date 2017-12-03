@@ -130,6 +130,7 @@
     <ClCompile Include="Engine\WindowManager.cpp" />
     <ClCompile Include="Entities\CorpsePile.cpp" />
     <ClCompile Include="Entities\GrainPile.cpp" />
+    <ClCompile Include="Entities\PlainTiles.cpp" />
     <ClCompile Include="Entities\PlayerChair.cpp" />
     <ClCompile Include="Entities\Wall.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="Engine\WindowManager.h" />
     <ClInclude Include="Entities\CorpsePile.h" />
     <ClInclude Include="Entities\GrainPile.h" />
+    <ClInclude Include="Entities\PlainTiles.h" />
     <ClInclude Include="Entities\PlayerChair.h" />
     <ClInclude Include="Entities\Wall.h" />
   </ItemGroup>

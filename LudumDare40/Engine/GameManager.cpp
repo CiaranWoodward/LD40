@@ -3,6 +3,7 @@
 #include "GameManager.h"
 #include "DrawObject.h"
 
+#include "../Entities/PlainTiles.h"
 #include "../Entities/PlayerChair.h"
 #include "../Entities/GrainPile.h"
 #include "../Entities/CorpsePile.h"
@@ -26,11 +27,13 @@ int GameManager::run()
 {
 	bool run = true;
 	
+	
 	new GrainPile(*this, mGrainCounter);
 	new CorpsePile(*this, mCorpseCounter);
 	new PlayerChair(*this);
 	new Wall(*this, sf::Vector2<uint32_t>(28, 28));
 	new Wall(*this, sf::Vector2<uint32_t>(28, 29));
+	new PlainTiles(*this);
 	
 	while (run)
 	{

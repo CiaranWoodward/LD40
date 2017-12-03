@@ -9,7 +9,7 @@ CorpsePile::CorpsePile(GameManager &aGameManager, uint32_t &aCorpseCounter) :
 	mTextCounter("000", mGameManager.GetDrawManager().GetGlobalFont(), 10),
 	mTileObject(mGameManager.GetMapManager(), sf::Vector2<uint32_t>(26, 24), 1, 100),
 	mDrawObject(mGameManager.GetDrawManager(), mSprite, 0),
-	mDrawTextObject(mGameManager.GetDrawManager(), mTextCounter, UINT32_MAX),
+	mDrawTextObject(mGameManager.GetDrawManager(), mTextCounter, INT32_MAX),
 	mCorpseCounter(aCorpseCounter)
 {
 	mSprite.setTexture(mGameManager.GetDrawManager().GetGlobalTexture());

@@ -6,8 +6,8 @@ WindowManager::WindowManager(DrawManager &aDrawManager) :
 	mDrawManager(aDrawManager)
 {
 	sf::Vector2f center = MapManager::GetTileDrawCenter(sf::Vector2<uint32_t>(MapManager::kMaxX/2, MapManager::kMaxY/2));
-	//sf::Vector2f dimens(640.f, 360.f);
-	sf::Vector2f dimens(1280.f, 720.f);
+	sf::Vector2f dimens(640.f, 360.f);
+	//sf::Vector2f dimens(1280.f, 720.f);
 	mWindow.setView(sf::View(center, dimens));
 }
 
