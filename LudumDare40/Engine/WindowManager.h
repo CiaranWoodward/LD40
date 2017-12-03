@@ -1,12 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-#include "DrawManager.h"
+class GameManager;
 
 class WindowManager
 {
 public:
-	WindowManager(DrawManager &aDrawManager);
+	WindowManager(GameManager &aGameManager);
 	~WindowManager();
 
 	//Returns false if close is requested
@@ -16,7 +16,10 @@ public:
 
 private:
 	sf::RenderWindow mWindow;
+	sf::View mView;
 
-	DrawManager &mDrawManager;
+	GameManager &mGameManager;
 };
+
+#include "GameManager.h"
 

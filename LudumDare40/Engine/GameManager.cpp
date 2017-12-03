@@ -16,17 +16,19 @@
 
 GameManager::GameManager() :
 	mDrawManager(),
-	mWindowManager(mDrawManager),
+	mWindowManager(*this),
 	mLogicManager(),
 	mCorpseCounter(0),
 	mGrainCounter(20)
 {
 	std::srand(std::time(0));
+	mCursor = new Cursor(*this);
 }
 
 
 GameManager::~GameManager()
 {
+	delete mCursor;
 }
 
 int GameManager::run()
@@ -44,13 +46,12 @@ int GameManager::run()
 	new Farm(*this, sf::Vector2<uint32_t>(31, 31), mGrainCounter);
 	new Farm(*this, sf::Vector2<uint32_t>(30, 31), mGrainCounter);
 	new PlainTiles(*this);
-
-	new Cursor(*this);
 	
 	while (run)
 	{
 		run = run && mWindowManager.Update();
 		run = run && mLogicManager.Update();
+		run = run && mCursor->Update();
 	}
 	return 0;
 }

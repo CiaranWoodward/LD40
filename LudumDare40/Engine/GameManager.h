@@ -5,6 +5,8 @@
 #include "LogicManager.h"
 #include "MapManager.h"
 
+class Cursor;
+
 class GameManager
 {
 public:
@@ -17,12 +19,15 @@ public:
 	LogicManager &GetLogicManager() { return mLogicManager; }
 	DrawManager &GetDrawManager() { return mDrawManager; }
 	WindowManager &GetWindowManager() { return mWindowManager; }
+	Cursor &GetCursor() { return *mCursor; }
 
 private:
 	DrawManager mDrawManager;
 	WindowManager mWindowManager;
 	LogicManager mLogicManager;
 	MapManager mMapManager;
+
+	Cursor *mCursor;
 
 	uint32_t mCorpseCounter;
 	uint32_t mGrainCounter;

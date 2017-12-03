@@ -1,14 +1,16 @@
 #include "WindowManager.h"
 #include "MapManager.h"
+#include "../Entities/Cursor.h"
 
-WindowManager::WindowManager(DrawManager &aDrawManager) :
+WindowManager::WindowManager(GameManager &aGameManager) :
 	mWindow(sf::VideoMode(1280, 720), "Ludum Dare 40"),
-	mDrawManager(aDrawManager)
+	mGameManager(aGameManager)
 {
 	sf::Vector2f center = MapManager::GetTileDrawCenter(sf::Vector2<uint32_t>(MapManager::kMaxX/2, MapManager::kMaxY/2));
 	sf::Vector2f dimens(640.f, 360.f);
 	//sf::Vector2f dimens(1280.f, 720.f);
-	mWindow.setView(sf::View(center, dimens));
+	mView = sf::View(center, dimens);
+	mWindow.setView(mView);
 }
 
 
@@ -25,10 +27,14 @@ bool WindowManager::Update()
 	{
 		if (event.type == sf::Event::Closed)
 			mWindow.close();
+
+		if (event.type == sf::Event::MouseButtonReleased)
+			mGameManager.GetCursor().HandleMouseEvent(event);
+
 	}
 
 	mWindow.clear();
-	mDrawManager.DrawAll(mWindow);
+	mGameManager.GetDrawManager().DrawAll(mWindow);
 	mWindow.display();
 
 	return true;
