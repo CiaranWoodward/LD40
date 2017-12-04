@@ -131,6 +131,7 @@
     <ClCompile Include="Engine\TileObject.cpp" />
     <ClCompile Include="Engine\WindowManager.cpp" />
     <ClCompile Include="Entities\Bait.cpp" />
+    <ClCompile Include="Entities\Bullet.cpp" />
     <ClCompile Include="Entities\CorpsePile.cpp" />
     <ClCompile Include="Entities\Cursor.cpp" />
     <ClCompile Include="Entities\Enemy.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="Engine\TileObject.h" />
     <ClInclude Include="Engine\WindowManager.h" />
     <ClInclude Include="Entities\Bait.h" />
+    <ClInclude Include="Entities\Bullet.h" />
     <ClInclude Include="Entities\CorpsePile.h" />
     <ClInclude Include="Entities\Cursor.h" />
     <ClInclude Include="Entities\Enemy.h" />

@@ -14,6 +14,8 @@ public:
 
 	float DistanceTo(sf::Vector2f aWorldCoords);
 
+	sf::Vector2f GetWorldCoords() { return mWorldCoords; }
+
 private:
 	GameManager &mGameManager;
 

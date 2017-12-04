@@ -150,7 +150,7 @@ bool Enemy::Update(sf::Time dt)
 	//accellerate towards neighbor
 	sf::Vector2f targetCoords = MapManager::GetTileDrawCenter(bestCoords);
 	sf::Vector2f v = targetCoords - mWorldCoords;
-	float mag = std::sqrtf((v.x * v.x) + (v.y * v.y));
+	float mag = std::sqrtf((v.x * v.x) + (4 * v.y * v.y));
 	mAccel = (v / mag) * mMaxAccel;
 
 	if (mAccel.x > 0)
