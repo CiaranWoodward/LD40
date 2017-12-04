@@ -95,6 +95,10 @@ bool Enemy::Update(sf::Time dt)
 	{
 		return true;
 	}
+
+	//Set sprite darkness
+	uint8_t oPac = static_cast<uint8_t>(std::log2(mGameManager.GetMapManager().GetTile(tileCoords).mSmellFactor) * 8.0);
+	mSprite.setColor(sf::Color(oPac, oPac, oPac));
 	
 	//If current tile is blocking or attractive, stop and attack it
 	if (mGameManager.GetMapManager().GetTile(tileCoords).GetBlockFactor() > 0 ||
