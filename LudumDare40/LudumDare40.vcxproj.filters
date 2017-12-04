@@ -99,6 +99,9 @@
     <ClCompile Include="Entities\Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Entities\EnemySpawner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\WindowManager.h">
@@ -156,6 +159,9 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Entities\Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entities\EnemySpawner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

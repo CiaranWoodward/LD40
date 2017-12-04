@@ -134,6 +134,7 @@
     <ClCompile Include="Entities\CorpsePile.cpp" />
     <ClCompile Include="Entities\Cursor.cpp" />
     <ClCompile Include="Entities\Enemy.cpp" />
+    <ClCompile Include="Entities\EnemySpawner.cpp" />
     <ClCompile Include="Entities\Farm.cpp" />
     <ClCompile Include="Entities\GrainPile.cpp" />
     <ClCompile Include="Entities\PlainTiles.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Entities\CorpsePile.h" />
     <ClInclude Include="Entities\Cursor.h" />
     <ClInclude Include="Entities\Enemy.h" />
+    <ClInclude Include="Entities\EnemySpawner.h" />
     <ClInclude Include="Entities\Farm.h" />
     <ClInclude Include="Entities\GrainPile.h" />
     <ClInclude Include="Entities\PlainTiles.h" />

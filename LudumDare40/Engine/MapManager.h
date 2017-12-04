@@ -52,5 +52,6 @@ public:
 private:
 	void CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor);
 	Tile mTiles[kMaxX][kMaxY];
+	Tile mDummyTile;
 };
 

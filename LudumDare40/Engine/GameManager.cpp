@@ -13,7 +13,7 @@
 #include "../Entities/Wall.h"
 #include "../Entities/Farm.h"
 #include "../Entities/Cursor.h"
-#include "../Entities/Enemy.h"
+#include "../Entities/EnemySpawner.h"
 
 GameManager::GameManager() :
 	mDrawManager(),
@@ -48,7 +48,8 @@ int GameManager::run()
 	new Farm(*this, sf::Vector2<uint32_t>(30, 31), mGrainCounter);
 	new PlainTiles(*this);
 
-	Enemy *enem = new Enemy(*this);
+	new EnemySpawner(*this, mGrainCounter);
+	
 	
 	while (run)
 	{
@@ -57,6 +58,5 @@ int GameManager::run()
 		run = run && mLogicManager.Update();
 		run = run && mCursor->Update();
 	}
-	enem->Update(sf::Time::Zero);
 	return 0;
 }

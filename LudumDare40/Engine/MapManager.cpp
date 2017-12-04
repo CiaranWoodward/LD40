@@ -4,8 +4,11 @@
 
 
 MapManager::MapManager() :
-	mTiles()
+	mTiles(),
+	mDummyTile()
 {
+	mDummyTile.mSmellFactor = 0;
+	mDummyTile.mLastTouched = 0;
 }
 
 
@@ -166,6 +169,7 @@ void MapManager::CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor)
 
 Tile &MapManager::GetTile(sf::Vector2<uint32_t> aTileCoord)
 {
+	if (aTileCoord.x >= kMaxX || aTileCoord.y >= kMaxY) return mDummyTile;
 	return mTiles[aTileCoord.x][aTileCoord.y];
 }
 

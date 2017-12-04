@@ -11,30 +11,30 @@ LogicManager::LogicManager() :
 
 LogicManager::~LogicManager()
 {
-	for (auto it = mLogicObjects.begin(); it != mLogicObjects.end(); )
+	for (LogicObject *&lo : mLogicObjects)
 	{
-		delete(*it);
-		it++;
+		delete (lo);
+		lo = NULL;
 	}
-	mLogicObjects.erase(mLogicObjects.begin(), mLogicObjects.end());
+
+	mLogicObjects.erase(std::remove(mLogicObjects.begin(), mLogicObjects.end(), reinterpret_cast<LogicObject*>(NULL)), mLogicObjects.end());
 }
 
 bool LogicManager::Update()
 {
 	sf::Time dt = mClock.restart();
 
-	for(auto it = mLogicObjects.begin(); it != mLogicObjects.end(); )
+	for (uint32_t i = 0; i < mLogicObjects.size(); i++)
 	{
-		if (!(*it)->Update(dt))
+		LogicObject *&lo = mLogicObjects.at(i);
+		if (!(lo)->Update(dt))
 		{
-			delete (*it);
-			it = mLogicObjects.erase(it);
-		}
-		else
-		{
-			it++;
+			delete (lo);
+			lo = NULL;
 		}
 	}
+
+	mLogicObjects.erase(std::remove(mLogicObjects.begin(), mLogicObjects.end(), reinterpret_cast<LogicObject*>(NULL)), mLogicObjects.end());
 
 	return true;
 }
