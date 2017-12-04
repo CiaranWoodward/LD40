@@ -44,8 +44,8 @@ bool PlainTiles::Update(sf::Time dt)
 		{
 			uint32_t smell = mGameManager.GetMapManager().GetTile(sf::Vector2<uint32_t>(x, y)).mSmellFactor;
 
-			uint8_t oPac = smell >> 16;
-			if (smell & 0xFF000000) oPac = 0xFF;
+			uint8_t oPac = static_cast<uint8_t>(std::log2(smell) * 8.0);//smell >> 16;
+			//if (smell & 0xFF000000) oPac = 0xFF;
 
 			mSprites[x][y].setColor(sf::Color(255, 255, 255, oPac));
 		}

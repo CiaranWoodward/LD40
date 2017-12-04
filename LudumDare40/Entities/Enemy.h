@@ -24,8 +24,8 @@ private:
 	sf::Vector2f mAccel;
 	sf::Time mCooldown;
 
-	const float mMaxSpeed = 10.f;
-	const float mMaxAccel = 10.f;
+	const float mMaxSpeed = 50.f;
+	const float mMaxAccel = 100.f;
 
 	const sf::IntRect mTexture1 = { 0, 100, 47, 28 };
 };

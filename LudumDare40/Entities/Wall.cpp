@@ -23,5 +23,6 @@ Wall::~Wall()
 
 bool Wall::Update(sf::Time dt)
 {
+	if (mTileObject.GetKeenFactor() == 0) return false;
 	return true;
 }

@@ -27,6 +27,8 @@ bool Farm::Update(sf::Time dt)
 {
 	mTimeElapsed += dt;
 
+	if (mTileObject.GetKeenFactor() == 0) return false;
+
 	if (mTimeElapsed < sf::seconds(3.f))
 	{
 		mSprite.setTextureRect(mTexture1);

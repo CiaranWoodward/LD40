@@ -48,7 +48,7 @@ int GameManager::run()
 	new Farm(*this, sf::Vector2<uint32_t>(30, 31), mGrainCounter);
 	new PlainTiles(*this);
 
-	new Enemy(*this);
+	Enemy *enem = new Enemy(*this);
 	
 	while (run)
 	{
@@ -57,5 +57,6 @@ int GameManager::run()
 		run = run && mLogicManager.Update();
 		run = run && mCursor->Update();
 	}
+	enem->Update(sf::Time::Zero);
 	return 0;
 }

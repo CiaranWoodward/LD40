@@ -46,6 +46,8 @@ void MapManager::CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor)
 	if (aKeenFactor > 31) aKeenFactor = 31;
 
 	mTiles[x][y].IncrementSmellFactor(1 << aKeenFactor);
+
+	uint32_t decay = 16;
 	
 	//Cast in y+ direction
 	for (uint32_t xRan = 1, ty=y; ty < kMaxY-1; xRan += 2, ty++)
@@ -72,9 +74,9 @@ void MapManager::CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor)
 			StillGoing = StillGoing || (curSmell > 2);
 
 			if (tx+1 > kMaxX || tx - 1 )
-			mTiles[tx + 1][ty + 1].IncrementSmellFactor(curSmell / 8);
-			mTiles[tx - 1][ty + 1].IncrementSmellFactor(curSmell / 8);
-			mTiles[tx][ty + 1].IncrementSmellFactor(curSmell / 4);
+			mTiles[tx + 1][ty + 1].IncrementSmellFactor(curSmell / decay * 2);
+			mTiles[tx - 1][ty + 1].IncrementSmellFactor(curSmell / decay * 2);
+			mTiles[tx][ty + 1].IncrementSmellFactor(curSmell / decay);
 		}
 		if (!StillGoing) break;
 	}
@@ -99,9 +101,9 @@ void MapManager::CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor)
 			if (mTiles[tx][ty].GetBlockFactor() > 0) curSmell /= mTiles[tx][ty].GetBlockFactor();
 			StillGoing = StillGoing || (curSmell > 2);
 
-			mTiles[tx + 1][ty - 1].IncrementSmellFactor(curSmell / 8);
-			mTiles[tx - 1][ty - 1].IncrementSmellFactor(curSmell / 8);
-			mTiles[tx][ty - 1].IncrementSmellFactor(curSmell / 4);
+			mTiles[tx + 1][ty - 1].IncrementSmellFactor(curSmell / decay * 2);
+			mTiles[tx - 1][ty - 1].IncrementSmellFactor(curSmell / decay * 2);
+			mTiles[tx][ty - 1].IncrementSmellFactor(curSmell / decay);
 		}
 		if (!StillGoing) break;
 	}
@@ -126,9 +128,9 @@ void MapManager::CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor)
 			if (mTiles[tx][ty].GetBlockFactor() > 0) curSmell /= mTiles[tx][ty].GetBlockFactor();
 			StillGoing = StillGoing || (curSmell > 2);
 
-			mTiles[tx + 1][ty + 1].IncrementSmellFactor(curSmell / 8);
-			mTiles[tx + 1][ty - 1].IncrementSmellFactor(curSmell / 8);
-			mTiles[tx + 1][ty].IncrementSmellFactor(curSmell / 4);
+			mTiles[tx + 1][ty + 1].IncrementSmellFactor(curSmell / decay * 2);
+			mTiles[tx + 1][ty - 1].IncrementSmellFactor(curSmell / decay * 2);
+			mTiles[tx + 1][ty].IncrementSmellFactor(curSmell / decay);
 		}
 		if (!StillGoing) break;
 	}
@@ -153,9 +155,9 @@ void MapManager::CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor)
 			if (mTiles[tx][ty].GetBlockFactor() > 0) curSmell /= mTiles[tx][ty].GetBlockFactor();
 			StillGoing = StillGoing || (curSmell > 2);
 
-			mTiles[tx - 1][ty + 1].IncrementSmellFactor(curSmell / 8);
-			mTiles[tx - 1][ty - 1].IncrementSmellFactor(curSmell / 8);
-			mTiles[tx - 1][ty].IncrementSmellFactor(curSmell / 4);
+			mTiles[tx - 1][ty + 1].IncrementSmellFactor(curSmell / decay * 2);
+			mTiles[tx - 1][ty - 1].IncrementSmellFactor(curSmell / decay * 2);
+			mTiles[tx - 1][ty].IncrementSmellFactor(curSmell / decay);
 		}
 		if (!StillGoing) break;
 	}

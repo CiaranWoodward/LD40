@@ -67,8 +67,14 @@ bool Enemy::Update(sf::Time dt)
 			v = ((v / checkSpeed)*mMaxSpeed);
 		}
 
-		mWorldCoords = mWorldCoords + (v + mSpeed) * dt.asSeconds() / 2.f;
+		sf::Vector2f deltaMove = (v + mSpeed) * dt.asSeconds() / 2.f;
+		deltaMove.y /= 2.f; //Half the move distance on the Y axis to account for dimetric projection
+		mWorldCoords = mWorldCoords + deltaMove;
 		mSpeed = v;
+
+		//Update sprite
+		mSprite.setPosition(mWorldCoords);
+		mDrawObject.SetDrawLevel(static_cast<int32_t>(mWorldCoords.y));
 	}
 
 	//Get current tile
@@ -115,7 +121,11 @@ bool Enemy::Update(sf::Time dt)
 			sf::Vector2<uint32_t> curCoords(tileCoords.x + x, tileCoords.y + y);
 			uint32_t curSmell = mGameManager.GetMapManager().GetTile(curCoords).mSmellFactor;
 
-			if (curSmell > bestSmell) bestCoords = curCoords;
+			if (curSmell > bestSmell)
+			{
+				bestSmell = curSmell;
+				bestCoords = curCoords;
+			}
 		}
 	}
 
@@ -136,7 +146,7 @@ bool Enemy::Update(sf::Time dt)
 	sf::Vector2f targetCoords = MapManager::GetTileDrawCenter(bestCoords);
 	sf::Vector2f v = targetCoords - mWorldCoords;
 	float mag = std::sqrtf((v.x * v.x) + (v.y * v.y));
-	sf::Vector2f mAccel = (v / mag) * mMaxAccel;
+	mAccel = (v / mag) * mMaxAccel;
 
 	return true;
 }

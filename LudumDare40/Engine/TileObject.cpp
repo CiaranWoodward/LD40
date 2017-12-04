@@ -20,7 +20,7 @@ bool TileObject::Damage(int32_t damage)
 	mBlockFactor -= damage;
 	if (mBlockFactor < 0)
 	{
-		mKeenFactor -= mBlockFactor;
+		mKeenFactor += mBlockFactor;
 		mBlockFactor = 0;
 	}
 	if (mKeenFactor < 0)
