@@ -12,6 +12,7 @@ WindowManager::WindowManager(GameManager &aGameManager) :
 	sf::Vector2f dimens(1280.f, 720.f);
 	mView = sf::View(center, dimens);
 	mWindow.setView(mView);
+	mWindow.setFramerateLimit(60);
 
 	mHUD.setTexture(mGameManager.GetDrawManager().GetGlobalTexture());
 	mHUD.setTextureRect(sf::IntRect(1473, 177, 255, 687));

@@ -4,7 +4,7 @@ Bait::Bait(GameManager &aGameManager, sf::Vector2<uint32_t> aTileCoord) :
 	LogicObject(aGameManager.GetLogicManager()),
 	mGameManager(aGameManager),
 	mSprite(),
-	mTileObject(mGameManager.GetMapManager(), aTileCoord, 10, 30),
+	mTileObject(mGameManager.GetMapManager(), aTileCoord, 1, 30),
 	mDrawObject(mGameManager.GetDrawManager(), mSprite, 0)
 {
 	mSprite.setTexture(mGameManager.GetDrawManager().GetGlobalTexture());

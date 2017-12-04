@@ -36,7 +36,6 @@ int GameManager::run()
 {
 	bool run = true;
 	
-	
 	new GrainPile(*this, mGrainCounter);
 	new CorpsePile(*this, mCorpseCounter);
 	new PlayerChair(*this);

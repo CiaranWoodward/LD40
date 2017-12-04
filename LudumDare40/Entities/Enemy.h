@@ -17,6 +17,12 @@ private:
 	sf::Sprite mSprite;
 
 	DrawObject mDrawObject;
+	EnemyObject mEnemyObject;
+
+	sf::Vector2f mWorldCoords;
+	sf::Vector2f mSpeed;
+	sf::Vector2f mMaxSpeed;
+	sf::Time mCooldown;
 
 	const sf::IntRect mTexture1 = { 0, 100, 47, 28 };
 };
