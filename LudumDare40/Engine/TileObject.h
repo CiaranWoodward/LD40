@@ -18,6 +18,8 @@ public:
 	int32_t GetBlockFactor() const { return mBlockFactor; }
 	int32_t GetKeenFactor() const { return mKeenFactor; }
 
+	void SetKeenFactor(int32_t aKeenFactor) { mKeenFactor = aKeenFactor; }
+
 	const sf::Vector2<uint32_t> GetTileCoords() const { return mTileCoord; }
 
 private:

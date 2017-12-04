@@ -23,6 +23,10 @@ bool Bait::Update(sf::Time dt)
 {
 	int32_t health = mTileObject.GetKeenFactor();
 
+	//Set tile brightness
+	uint8_t oPac = static_cast<uint8_t>(std::log2(mGameManager.GetMapManager().GetTile(mTileObject.GetTileCoords()).mSmellFactor) * 8.0);
+	mSprite.setColor(sf::Color(oPac, oPac, oPac));
+
 	if (health == 0)
 		return false;
 	else if (health < 5)

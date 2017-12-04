@@ -8,10 +8,11 @@ GrainPile::GrainPile(GameManager &aGameManager, uint32_t &aGrainCounter) :
 	mGameManager(aGameManager),
 	mSprite(),
 	mTextCounter("000", mGameManager.GetDrawManager().GetGlobalFont(), 10),
-	mTileObject(mGameManager.GetMapManager(), sf::Vector2<uint32_t>(24, 26), 1, 100),
+	mTileObject(mGameManager.GetMapManager(), sf::Vector2<uint32_t>(24, 26), 1, aGrainCounter),
 	mDrawObject(mGameManager.GetDrawManager(), mSprite, 0),
 	mDrawTextObject(mGameManager.GetDrawManager(), mTextCounter, INT32_MAX),
-	mGrainCounter(aGrainCounter)
+	mGrainCounter(aGrainCounter),
+	mPrevGrainCounter(aGrainCounter)
 {
 	mSprite.setTexture(mGameManager.GetDrawManager().GetGlobalTexture());
 	mSprite.setTextureRect(sf::IntRect(0, 41, 106, 53));
@@ -38,6 +39,16 @@ GrainPile::~GrainPile()
 bool GrainPile::Update(sf::Time dt)
 {
 	int32_t drawLevelOffset = MapManager::kTileHeight + 20;
+
+	//Grain calcs for loss
+	int32_t grainDiff = mPrevGrainCounter - mTileObject.GetKeenFactor();
+	mGrainCounter -= grainDiff;
+	mTileObject.SetKeenFactor(mGrainCounter);
+	mPrevGrainCounter = mGrainCounter;
+
+	//Set tile brightness
+	uint8_t oPac = static_cast<uint8_t>(std::log2(mGameManager.GetMapManager().GetTile(mTileObject.GetTileCoords()).mSmellFactor) * 8.0);
+	mSprite.setColor(sf::Color(oPac, oPac, oPac));
 
 	mTextCounter.setString(std::to_string(mGrainCounter));
 	mTextCounter.setOrigin(mTextCounter.getLocalBounds().width / 2, 0);

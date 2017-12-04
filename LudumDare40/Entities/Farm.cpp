@@ -27,6 +27,10 @@ bool Farm::Update(sf::Time dt)
 {
 	mTimeElapsed += dt;
 
+	//Set tile brightness
+	uint8_t oPac = static_cast<uint8_t>(std::log2(mGameManager.GetMapManager().GetTile(mTileObject.GetTileCoords()).mSmellFactor) * 8.0);
+	mSprite.setColor(sf::Color(oPac, oPac, oPac));
+
 	if (mTileObject.GetKeenFactor() == 0) return false;
 
 	if (mTimeElapsed < sf::seconds(3.f))

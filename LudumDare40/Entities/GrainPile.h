@@ -23,6 +23,7 @@ private:
 	DrawObject mDrawTextObject;
 
 	uint32_t &mGrainCounter;
+	uint32_t mPrevGrainCounter;
 
 	const sf::IntRect mTexture1 = { 0, 41, 106, 53 };
 	const sf::IntRect mTexture2 = { 271, 110, 106, 53 };

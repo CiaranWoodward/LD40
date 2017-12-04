@@ -23,5 +23,9 @@ PlayerChair::~PlayerChair()
 
 bool PlayerChair::Update(sf::Time dt)
 {
+	//Set tile brightness
+	uint8_t oPac = static_cast<uint8_t>(std::log2(mGameManager.GetMapManager().GetTile(mTileObject.GetTileCoords()).mSmellFactor) * 8.0);
+	mSprite.setColor(sf::Color(oPac, oPac, oPac));
+
 	return true;
 }

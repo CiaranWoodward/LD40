@@ -47,7 +47,7 @@ Enemy::Enemy(GameManager &aGameManager) :
 	mSprite.setTextureRect(mTexture1);
 	mSprite.setPosition(mWorldCoords);
 	mSprite.setOrigin(mSprite.getTextureRect().width / 2.f, mSprite.getTextureRect().height);
-	mDrawObject.SetDrawLevel(static_cast<int32_t>(mWorldCoords.y));
+	mDrawObject.SetDrawLevel(static_cast<int32_t>(mWorldCoords.y + 3));
 }
 
 Enemy::~Enemy()
@@ -74,7 +74,8 @@ bool Enemy::Update(sf::Time dt)
 
 		//Update sprite
 		mSprite.setPosition(mWorldCoords);
-		mDrawObject.SetDrawLevel(static_cast<int32_t>(mWorldCoords.y));
+		mDrawObject.SetDrawLevel(static_cast<int32_t>(mWorldCoords.y + 3));
+
 	}
 
 	//Get current tile
@@ -151,6 +152,11 @@ bool Enemy::Update(sf::Time dt)
 	sf::Vector2f v = targetCoords - mWorldCoords;
 	float mag = std::sqrtf((v.x * v.x) + (v.y * v.y));
 	mAccel = (v / mag) * mMaxAccel;
+
+	if (mAccel.x > 0)
+		mSprite.setScale(-1.f, 1.f);
+	else
+		mSprite.setScale(1.f, 1.f);
 
 	return true;
 }
