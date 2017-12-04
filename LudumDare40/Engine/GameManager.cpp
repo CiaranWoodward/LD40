@@ -19,7 +19,7 @@ GameManager::GameManager() :
 	mWindowManager(*this),
 	mLogicManager(),
 	mEnemyManager(),
-	mCorpseCounter(0),
+	mCorpseCounter(10),
 	mGrainCounter(20)
 {
 	std::srand(std::time(0));

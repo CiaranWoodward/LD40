@@ -11,6 +11,12 @@ LogicManager::LogicManager() :
 
 LogicManager::~LogicManager()
 {
+	for (auto it = mLogicObjects.begin(); it != mLogicObjects.end(); )
+	{
+		delete(*it);
+		it++;
+	}
+	mLogicObjects.erase(mLogicObjects.begin(), mLogicObjects.end());
 }
 
 bool LogicManager::Update()

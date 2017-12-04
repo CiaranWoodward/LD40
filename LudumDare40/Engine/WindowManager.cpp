@@ -8,8 +8,8 @@ WindowManager::WindowManager(GameManager &aGameManager) :
 	mHUD()
 {
 	sf::Vector2f center = MapManager::GetTileDrawCenter(sf::Vector2<uint32_t>(MapManager::kMaxX/2, MapManager::kMaxY/2));
-	sf::Vector2f dimens(640.f, 360.f);
-	//sf::Vector2f dimens(1280.f, 720.f);
+	//sf::Vector2f dimens(640.f, 360.f);
+	sf::Vector2f dimens(1280.f, 720.f);
 	mView = sf::View(center, dimens);
 	mWindow.setView(mView);
 
