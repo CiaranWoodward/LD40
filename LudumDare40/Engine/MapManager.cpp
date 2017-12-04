@@ -67,7 +67,10 @@ void MapManager::CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor)
 		for (uint32_t tx = minX; tx <= maxX; tx++) //3 tile projection for each tile in range
 		{
 			uint32_t curSmell = mTiles[tx][ty].mLastTouched;
+
+			if (mTiles[tx][ty].GetBlockFactor() > 0) curSmell /= mTiles[tx][ty].GetBlockFactor();
 			StillGoing = StillGoing || (curSmell > 2);
+
 			if (tx+1 > kMaxX || tx - 1 )
 			mTiles[tx + 1][ty + 1].IncrementSmellFactor(curSmell / 8);
 			mTiles[tx - 1][ty + 1].IncrementSmellFactor(curSmell / 8);
@@ -92,6 +95,8 @@ void MapManager::CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor)
 		for (uint32_t tx = minX; tx <= maxX; tx++) //3 tile projection for each tile in range
 		{
 			uint32_t curSmell = mTiles[tx][ty].mLastTouched;
+
+			if (mTiles[tx][ty].GetBlockFactor() > 0) curSmell /= mTiles[tx][ty].GetBlockFactor();
 			StillGoing = StillGoing || (curSmell > 2);
 
 			mTiles[tx + 1][ty - 1].IncrementSmellFactor(curSmell / 8);
@@ -117,6 +122,8 @@ void MapManager::CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor)
 		for (uint32_t ty = minY; ty <= maxY; ty++) //3 tile projection for each tile in range
 		{
 			uint32_t curSmell = mTiles[tx][ty].mLastTouched;
+
+			if (mTiles[tx][ty].GetBlockFactor() > 0) curSmell /= mTiles[tx][ty].GetBlockFactor();
 			StillGoing = StillGoing || (curSmell > 2);
 
 			mTiles[tx + 1][ty + 1].IncrementSmellFactor(curSmell / 8);
@@ -142,6 +149,8 @@ void MapManager::CastSmells(uint32_t x, uint32_t y, int32_t aKeenFactor)
 		for (uint32_t ty = minY; ty <= maxY; ty++) //3 tile projection for each tile in range
 		{
 			uint32_t curSmell = mTiles[tx][ty].mLastTouched;
+
+			if (mTiles[tx][ty].GetBlockFactor() > 0) curSmell /= mTiles[tx][ty].GetBlockFactor();
 			StillGoing = StillGoing || (curSmell > 2);
 
 			mTiles[tx - 1][ty + 1].IncrementSmellFactor(curSmell / 8);
