@@ -11,7 +11,7 @@ Enemy::Enemy(GameManager &aGameManager) :
 	mDrawObject(mGameManager.GetDrawManager(), mSprite, 0),
 	mWorldCoords(),
 	mSpeed(0.f, 0.f),
-	mMaxSpeed(10.f, 10.f),
+	mAccel(0.f, 0.f),
 	mCooldown(sf::Time::Zero),
 	mEnemyObject(mGameManager, mWorldCoords, 5)
 {
@@ -56,6 +56,21 @@ Enemy::~Enemy()
 
 bool Enemy::Update(sf::Time dt)
 {
+	//Apply Movement
+	{
+		//Check Accelleration doesn't cause velocity to go too high
+		sf::Vector2f v = mAccel * dt.asSeconds() + mSpeed;
+		float checkSpeed = std::sqrtf((v.x * v.x) + (v.y * v.y));
+
+		if (checkSpeed > mMaxSpeed)
+		{
+			v = ((v / checkSpeed)*mMaxSpeed);
+		}
+
+		mWorldCoords = mWorldCoords + (v + mSpeed) * dt.asSeconds() / 2.f;
+		mSpeed = v;
+	}
+
 	//Get current tile
 	int32_t div = MapManager::kTileWidth + (2 * MapManager::kTileHeight);
 	int32_t Sy = static_cast<int32_t>(mWorldCoords.y);
@@ -79,9 +94,14 @@ bool Enemy::Update(sf::Time dt)
 	if (mGameManager.GetMapManager().GetTile(tileCoords).GetBlockFactor() > 0 ||
 		mGameManager.GetMapManager().GetTile(tileCoords).GetKeenFactor() > 0)
 	{
+		mSpeed.x = 0;
+		mSpeed.y = 0;
+		mAccel.x = 0;
+		mAccel.y = 0;
 		if (!mGameManager.GetMapManager().GetTile(tileCoords).Damage(1))
 		{
 			mCooldown = sf::seconds(1.f);
+			return true;
 		}
 	}
 
@@ -112,7 +132,11 @@ bool Enemy::Update(sf::Time dt)
 			bestCoords = sf::Vector2<uint32_t>(tileCoords.x - 1, tileCoords.y);
 	}
 
-	//move towards neighbor
+	//accellerate towards neighbor
+	sf::Vector2f targetCoords = MapManager::GetTileDrawCenter(bestCoords);
+	sf::Vector2f v = targetCoords - mWorldCoords;
+	float mag = std::sqrtf((v.x * v.x) + (v.y * v.y));
+	sf::Vector2f mAccel = (v / mag) * mMaxAccel;
 
 	return true;
 }

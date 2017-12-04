@@ -21,8 +21,11 @@ private:
 
 	sf::Vector2f mWorldCoords;
 	sf::Vector2f mSpeed;
-	sf::Vector2f mMaxSpeed;
+	sf::Vector2f mAccel;
 	sf::Time mCooldown;
+
+	const float mMaxSpeed = 10.f;
+	const float mMaxAccel = 10.f;
 
 	const sf::IntRect mTexture1 = { 0, 100, 47, 28 };
 };
