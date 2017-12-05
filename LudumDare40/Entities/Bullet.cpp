@@ -70,7 +70,7 @@ bool Bullet::Update(sf::Time dt)
 		sf::Vector2f v = targetCoords - mWorldCoords;
 		float mag = std::sqrtf((v.x * v.x) + (4 * v.y * v.y));
 
-		if (mag < 5)
+		if (mag < 10)
 		{
 			//hit
 			mTarget->Damage(1);

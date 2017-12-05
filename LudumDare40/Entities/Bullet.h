@@ -23,7 +23,7 @@ private:
 	sf::Vector2f mAccel;
 	sf::Time mCooldown;
 
-	const float mMaxSpeed = 70.f;
+	const float mMaxSpeed = 90.f;
 	const float mMaxAccel = 300.f;
 
 	EnemyObject *mTarget;

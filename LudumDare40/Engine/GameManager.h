@@ -23,6 +23,8 @@ public:
 	WindowManager &GetWindowManager() { return mWindowManager; }
 	Cursor &GetCursor() { return *mCursor; }
 
+	uint32_t GetDifficulty() { return mCorpseTotal / 50; }
+
 private:
 	DrawManager mDrawManager;
 	WindowManager mWindowManager;
@@ -32,6 +34,7 @@ private:
 
 	Cursor *mCursor;
 
+	uint32_t mCorpseTotal;
 	uint32_t mCorpseCounter;
 	uint32_t mGrainCounter;
 };

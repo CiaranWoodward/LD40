@@ -13,7 +13,7 @@ Enemy::Enemy(GameManager &aGameManager) :
 	mSpeed(0.f, 0.f),
 	mAccel(0.f, 0.f),
 	mCooldown(sf::Time::Zero),
-	mEnemyObject(mGameManager, mWorldCoords, 2),
+	mEnemyObject(mGameManager, mWorldCoords, 2 + mGameManager.GetDifficulty()),
 	mDie(0)
 {
 	//Spawn along an edge

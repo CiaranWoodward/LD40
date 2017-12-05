@@ -42,6 +42,10 @@ bool Turret::Update(sf::Time dt)
 		return true;
 	}
 
+	//If not enough food to shoot, continue
+	if (mGrainCounter <= 0)
+		return true;
+
 	//Shoot if enemy is nearby
 	EnemyObject *mEnemy = mGameManager.GetEnemyManager().GetClosestEnemy(mFirePoint);
 
@@ -51,9 +55,10 @@ bool Turret::Update(sf::Time dt)
 		sf::Vector2f v = targetCoords - mFirePoint;
 		float mag = std::sqrtf((v.x * v.x) + (4 * v.y * v.y));
 
-		if (mag < 600.f)
+		if (mag < 350.f)
 		{
 			new Bullet(mGameManager, mFirePoint);
+			mGrainCounter--;
 			mCooldown = sf::seconds(8.f);
 		}
 	}
