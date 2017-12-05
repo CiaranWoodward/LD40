@@ -18,11 +18,19 @@ private:
 	GameManager &mGameManager;
 
 	sf::Sprite mSprite;
+	sf::Text mTextMessage;
 
 	sf::Vector2f mFirePoint;
 	sf::Time mCooldown;
+	sf::Time mTextCooldown;
+
+	int mTextCounter;
+
+	bool isGameOver;
+	uint32_t score;
 
 	TileObject mTileObject;
 	DrawObject mDrawObject;
+	DrawObject mDrawTextObject;
 };
 

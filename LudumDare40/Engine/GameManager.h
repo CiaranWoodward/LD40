@@ -24,6 +24,7 @@ public:
 	Cursor &GetCursor() { return *mCursor; }
 
 	uint32_t GetDifficulty() { return mCorpseTotal / 50; }
+	uint32_t GetGrainCount() { return mGrainCounter; }
 
 private:
 	DrawManager mDrawManager;

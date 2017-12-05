@@ -106,7 +106,7 @@
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Entities\Turret.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities\Buildings</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -174,7 +174,7 @@
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Entities\Turret.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entities\Buildings</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

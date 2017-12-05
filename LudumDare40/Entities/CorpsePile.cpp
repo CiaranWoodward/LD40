@@ -6,7 +6,7 @@ CorpsePile::CorpsePile(GameManager &aGameManager, uint32_t &aCorpseCounter) :
 	LogicObject(aGameManager.GetLogicManager()),
 	mGameManager(aGameManager),
 	mSprite(),
-	mTextCounter("000", mGameManager.GetDrawManager().GetGlobalFont(), 10),
+	mTextCounter("000", mGameManager.GetDrawManager().GetGlobalFont(), 15),
 	mTileObject(mGameManager.GetMapManager(), sf::Vector2<uint32_t>(26, 24), 0, 0),
 	mDrawObject(mGameManager.GetDrawManager(), mSprite, 0),
 	mDrawTextObject(mGameManager.GetDrawManager(), mTextCounter, INT32_MAX),
