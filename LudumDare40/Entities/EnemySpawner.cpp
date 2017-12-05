@@ -18,7 +18,7 @@ bool EnemySpawner::Update(sf::Time dt)
 	mTime += dt;
 
 	sf::Time targetSpawn = sf::seconds(10000.f * (1.f / (mGrainCounter + 1000.f)));
-	targetSpawn /= static_cast<float>(mGameManager.GetDifficulty());
+	targetSpawn /= static_cast<float>(mGameManager.GetDifficulty() + 1);
 
 	if (mTime > targetSpawn)
 	{
