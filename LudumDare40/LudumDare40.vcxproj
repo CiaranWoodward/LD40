@@ -140,6 +140,7 @@
     <ClCompile Include="Entities\GrainPile.cpp" />
     <ClCompile Include="Entities\PlainTiles.cpp" />
     <ClCompile Include="Entities\PlayerChair.cpp" />
+    <ClCompile Include="Entities\Turret.cpp" />
     <ClCompile Include="Entities\Wall.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
@@ -164,6 +165,7 @@
     <ClInclude Include="Entities\GrainPile.h" />
     <ClInclude Include="Entities\PlainTiles.h" />
     <ClInclude Include="Entities\PlayerChair.h" />
+    <ClInclude Include="Entities\Turret.h" />
     <ClInclude Include="Entities\Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

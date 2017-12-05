@@ -6,6 +6,7 @@
 #include "Farm.h"
 #include "Bait.h"
 #include "Wall.h"
+#include "Turret.h"
 
 
 Cursor::Cursor(GameManager &aGameManager, uint32_t &aGrainCounter, uint32_t &aCorpseCounter) :
@@ -110,7 +111,7 @@ bool Cursor::HandleMouseEvent(sf::Event & aMouseEvent)
 						new Bait(mGameManager, tileCoords);
 						break;
 					case kItemTurret:
-						//TODO
+						new Turret(mGameManager, tileCoords, mGrainCounter);
 						break;
 					}
 				}

@@ -46,7 +46,7 @@ private:
 		case kItemClear:
 			return 0;
 		case kItemWall:
-			return 8;
+			return 4;
 		case kItemFarm:
 			return 2;
 		case kItemBait:
