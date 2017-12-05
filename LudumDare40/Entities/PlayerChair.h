@@ -19,6 +19,9 @@ private:
 
 	sf::Sprite mSprite;
 
+	sf::Vector2f mFirePoint;
+	sf::Time mCooldown;
+
 	TileObject mTileObject;
 	DrawObject mDrawObject;
 };

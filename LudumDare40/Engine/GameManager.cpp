@@ -19,8 +19,8 @@ GameManager::GameManager() :
 	mDrawManager(),
 	mWindowManager(*this),
 	mLogicManager(),
-	mEnemyManager(),
-	mCorpseCounter(100),
+	mEnemyManager(mCorpseCounter),
+	mCorpseCounter(10),
 	mGrainCounter(20)
 {
 	std::srand(std::time(0));
@@ -40,12 +40,8 @@ int GameManager::run()
 	new GrainPile(*this, mGrainCounter);
 	new CorpsePile(*this, mCorpseCounter);
 	new PlayerChair(*this);
-	new Wall(*this, sf::Vector2<uint32_t>(28, 28));
-	new Wall(*this, sf::Vector2<uint32_t>(28, 29));
-	new Farm(*this, sf::Vector2<uint32_t>(30, 30), mGrainCounter);
-	new Farm(*this, sf::Vector2<uint32_t>(31, 30), mGrainCounter);
-	new Farm(*this, sf::Vector2<uint32_t>(31, 31), mGrainCounter);
-	new Farm(*this, sf::Vector2<uint32_t>(30, 31), mGrainCounter);
+	new Farm(*this, sf::Vector2<uint32_t>(26, 25), mGrainCounter);
+	new Farm(*this, sf::Vector2<uint32_t>(25, 26), mGrainCounter);
 	new PlainTiles(*this);
 
 	new EnemySpawner(*this, mGrainCounter);
@@ -57,6 +53,7 @@ int GameManager::run()
 		run = run && mMapManager.Update();
 		run = run && mLogicManager.Update();
 		run = run && mCursor->Update();
+		run = run && mEnemyManager.Update();
 	}
 	return 0;
 }

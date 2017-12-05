@@ -1,9 +1,9 @@
 #include "EnemyManager.h"
 
-EnemyManager::EnemyManager()
+EnemyManager::EnemyManager(uint32_t &aCorpseCounter) :
+	mCorpseCounter(aCorpseCounter)
 {
 }
-
 
 EnemyManager::~EnemyManager()
 {
@@ -16,6 +16,7 @@ bool EnemyManager::Update()
 		if (eo->Damage(0))
 		{
 			eo = NULL;
+			mCorpseCounter++;
 		}
 	}
 	mEnemyObjects.erase(std::remove(mEnemyObjects.begin(), mEnemyObjects.end(), reinterpret_cast<EnemyObject*>(NULL)), mEnemyObjects.end());
@@ -29,15 +30,18 @@ EnemyObject *EnemyManager::GetClosestEnemy(sf::Vector2f aWorldCoord)
 
 	for (EnemyObject *eo : mEnemyObjects)
 	{
+		if (eo == NULL || eo->Damage(0)) continue;
 		if (rval == NULL)
 		{
 			rval = eo;
+			curDist = eo->DistanceTo(aWorldCoord);
 		}
 		else
 		{
 			if (eo->DistanceTo(aWorldCoord) < curDist)
 			{
 				rval = eo;
+				curDist = eo->DistanceTo(aWorldCoord);
 			}
 		}
 	}

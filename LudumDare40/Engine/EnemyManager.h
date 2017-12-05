@@ -7,7 +7,7 @@ class EnemyManager
 {
 	friend EnemyObject;
 public:
-	EnemyManager();
+	EnemyManager(uint32_t &aCorpseCounter);
 	~EnemyManager();
 
 	bool Update();
@@ -19,5 +19,7 @@ protected:
 
 private:
 	std::vector<EnemyObject*> mEnemyObjects;
+
+	uint32_t &mCorpseCounter;
 };
 

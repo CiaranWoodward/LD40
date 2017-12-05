@@ -7,7 +7,7 @@ class Bullet :
 	public LogicObject
 {
 public:
-	Bullet(GameManager aGameManager, sf::Vector2f aWorldCoords);
+	Bullet(GameManager &aGameManager, sf::Vector2f aWorldCoords);
 	~Bullet();
 
 	bool Update(sf::Time dt) override;
@@ -23,8 +23,8 @@ private:
 	sf::Vector2f mAccel;
 	sf::Time mCooldown;
 
-	const float mMaxSpeed = 50.f;
-	const float mMaxAccel = 100.f;
+	const float mMaxSpeed = 70.f;
+	const float mMaxAccel = 300.f;
 
 	EnemyObject *mTarget;
 

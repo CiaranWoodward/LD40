@@ -1,7 +1,7 @@
 #include "Bullet.h"
 
 
-Bullet::Bullet(GameManager aGameManager, sf::Vector2f aWorldCoords) :
+Bullet::Bullet(GameManager &aGameManager, sf::Vector2f aWorldCoords) :
 	LogicObject(aGameManager.GetLogicManager()),
 	mGameManager(aGameManager),
 	mSprite(),
@@ -24,11 +24,16 @@ Bullet::~Bullet()
 
 bool Bullet::Update(sf::Time dt)
 {
+	if (mTarget == NULL || mTarget->Damage(0)) mTarget = NULL;
+
 	//If in cooldown, just continue
 	mCooldown -= dt;
 	if (mCooldown <= sf::Time::Zero)
 	{
-		mCooldown = sf::Time::Zero;
+		mSprite.setColor(sf::Color(255, 255, 255));
+
+		if (mCooldown < sf::seconds(-20))
+			return false;
 	}
 	else
 	{
@@ -55,7 +60,6 @@ bool Bullet::Update(sf::Time dt)
 
 		//Update sprite
 		mSprite.setPosition(mWorldCoords);
-		mDrawObject.SetDrawLevel(static_cast<int32_t>(mWorldCoords.y + 3));
 	}
 
 	if (mTarget != NULL && !mTarget->Damage(0))

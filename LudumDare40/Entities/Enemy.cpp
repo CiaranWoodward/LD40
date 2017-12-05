@@ -13,7 +13,8 @@ Enemy::Enemy(GameManager &aGameManager) :
 	mSpeed(0.f, 0.f),
 	mAccel(0.f, 0.f),
 	mCooldown(sf::Time::Zero),
-	mEnemyObject(mGameManager, mWorldCoords, 5)
+	mEnemyObject(mGameManager, mWorldCoords, 5),
+	mDie(0)
 {
 	//Spawn along an edge
 	uint8_t rn = std::rand() % 4;
@@ -56,6 +57,10 @@ Enemy::~Enemy()
 
 bool Enemy::Update(sf::Time dt)
 {
+	//Hack
+	if (mDie > 5) return false;
+	if (mEnemyObject.Damage(0)) mDie++;
+
 	//Apply Movement
 	{
 		//Check Accelleration doesn't cause velocity to go too high

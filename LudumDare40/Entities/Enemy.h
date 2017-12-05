@@ -27,6 +27,8 @@ private:
 	const float mMaxSpeed = 50.f;
 	const float mMaxAccel = 100.f;
 
+	int mDie;
+
 	const sf::IntRect mTexture1 = { 0, 100, 47, 28 };
 };
 
