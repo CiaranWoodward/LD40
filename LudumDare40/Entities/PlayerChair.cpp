@@ -50,8 +50,12 @@ bool PlayerChair::Update(sf::Time dt)
 	if (mTileObject.GetKeenFactor() <= 0)
 	{
 		isGameOver = true;
-		score = mGameManager.GetGrainCount();
 		return true;
+	}
+
+	if (score < mGameManager.GetGrainCount())
+	{
+		score = mGameManager.GetGrainCount();
 	}
 
 	//Text Cooldown

@@ -1,7 +1,8 @@
 #include "EnemyManager.h"
 
-EnemyManager::EnemyManager(uint32_t &aCorpseCounter) :
-	mCorpseCounter(aCorpseCounter)
+EnemyManager::EnemyManager(uint32_t &aCorpseCounter, uint32_t &aCorpseTotal) :
+	mCorpseCounter(aCorpseCounter),
+	mCorpseTotal(aCorpseTotal)
 {
 }
 
@@ -17,6 +18,7 @@ bool EnemyManager::Update()
 		{
 			eo = NULL;
 			mCorpseCounter++;
+			mCorpseTotal++;
 		}
 	}
 	mEnemyObjects.erase(std::remove(mEnemyObjects.begin(), mEnemyObjects.end(), reinterpret_cast<EnemyObject*>(NULL)), mEnemyObjects.end());

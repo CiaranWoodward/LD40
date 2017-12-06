@@ -156,7 +156,14 @@ bool Enemy::Update(sf::Time dt)
 	sf::Vector2f targetCoords = MapManager::GetTileDrawCenter(bestCoords);
 	sf::Vector2f v = targetCoords - mWorldCoords;
 	float mag = std::sqrtf((v.x * v.x) + (4 * v.y * v.y));
-	mAccel = (v / mag) * mMaxAccel;
+	if (mag > 0)
+	{
+		mAccel = (v / mag) * mMaxAccel;
+	}
+	else
+	{
+		mAccel = sf::Vector2f(0.f, 0.f);
+	}
 
 	if (mAccel.x > 0)
 		mSprite.setScale(-1.f, 1.f);
